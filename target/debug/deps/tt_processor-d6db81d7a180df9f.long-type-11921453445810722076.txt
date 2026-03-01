@@ -1,0 +1,1 @@
+std::result::Result<i64, <D as _::_serde::Deserializer<'de>>::Error>: std::convert::From<std::result::Result<i64, std::num::ParseIntError>>
