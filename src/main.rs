@@ -209,6 +209,15 @@ async fn main() {
                 let client = result.client;
                 let amount = result.amount.unwrap_or_default();
 
+                if amount <= 0 {
+                    tracing::warn!(
+                        "Skipping: `TxType::Withdraw` amount leq zero - {} transaction: {}",
+                        result.client,
+                        result.tx
+                    );
+                    continue;
+                }
+
                 if account.is_none() {
                     tracing::warn!(
                         "Skipping: `TxType::Withdraw` account not found; creating record - {}",
